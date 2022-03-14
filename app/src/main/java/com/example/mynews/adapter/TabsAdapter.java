@@ -13,12 +13,12 @@ import com.example.mynews.fragments.HeadLinesFragment;
 import com.example.mynews.fragments.SportsFragment;
 import com.example.mynews.fragments.TechnologyFragment;
 
-public class MyAdapter extends FragmentPagerAdapter {
+public class TabsAdapter extends FragmentPagerAdapter {
 
 	private int tabs_size = 6;
 	private final Context mContext;
 
-	public MyAdapter(Context context, FragmentManager fm) {
+	public TabsAdapter(Context context, FragmentManager fm) {
 		super(fm);
 		mContext = context;
 	}

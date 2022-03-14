@@ -5,7 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.example.mynews.adapter.MyAdapter;
+import com.example.mynews.adapter.TabsAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,10 +16,9 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_main);
-		MyAdapter myAdapter = new MyAdapter(this, getSupportFragmentManager());
 
+		TabsAdapter myAdapter = new TabsAdapter(this, getSupportFragmentManager());
 		tabLayout = (TabLayout)findViewById(R.id.tabs);
 		viewPager=(ViewPager)findViewById(R.id.view_pager);
 

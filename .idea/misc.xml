@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/date_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/url_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_business.xml" value="0.1540020263424519" />
-        <entry key="app/src/main/res/layout/fragment_entertainment.xml" value="0.1540020263424519" />
+        <entry key="app/src/main/res/layout/fragment_entertainment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.1540020263424519" />
         <entry key="app/src/main/res/layout/fragment_headlines.xml" value="0.15450861195542046" />
         <entry key="app/src/main/res/layout/fragment_sports.xml" value="0.1540020263424519" />
         <entry key="app/src/main/res/layout/fragment_technology.xml" value="0.1540020263424519" />
+        <entry key="app/src/main/res/layout/headlines_row.xml" value="0.10185185185185185" />
       </map>
     </option>
   </component>
