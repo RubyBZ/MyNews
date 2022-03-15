@@ -13,24 +13,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mynews.R;
 import com.example.mynews.adapter.HeadLinesAdapter;
 import com.example.mynews.model.Articles;
-import com.example.mynews.viewmodel.BusinessViewModel;
+import com.example.mynews.viewmodel.TopHeadlinesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BusinessFragment extends Fragment {
+public class TopHeadlinesFragment extends Fragment {
 
 	private View view;
 	private RecyclerView recyclerView;
 	private HeadLinesAdapter adapter;
 	private List<Articles> articles = new ArrayList<>();
-	private BusinessViewModel businessViewModel;
+	private TopHeadlinesViewModel topHeadlinesViewModel;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 
-		view = inflater.inflate(R.layout.fragment_business, container, false);
+		view = inflater.inflate(R.layout.fragment_top_headlines, container, false);
 		init();
 		getArticles();
 
@@ -39,19 +39,19 @@ public class BusinessFragment extends Fragment {
 
 	private void init() {
 
-		recyclerView=view.findViewById(R.id.businessRecyclerView);
+		recyclerView=view.findViewById(R.id.topHeadlinesRecyclerView);
 		recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 		recyclerView.setHasFixedSize(true);
 		adapter = new HeadLinesAdapter(articles,getContext());
 		recyclerView.setAdapter(adapter);
-		businessViewModel = ViewModelProviders.of(this).get(BusinessViewModel.class);
+		topHeadlinesViewModel = ViewModelProviders.of(this).get(TopHeadlinesViewModel.class);
 
 	}
 
 	private void getArticles() {
 
-		businessViewModel.getBusinessLiveData().observe(getViewLifecycleOwner(),headLines -> {
+		topHeadlinesViewModel.getTopHeadlinesLiveData().observe(this,headLines -> {
 			if(headLines != null && headLines.getArticles()!= null
 					&& !headLines.getArticles().isEmpty()) {
 
@@ -62,3 +62,4 @@ public class BusinessFragment extends Fragment {
 		});
 	}
 }
+

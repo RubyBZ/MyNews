@@ -6,18 +6,18 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface ApiInterface {
+public interface ApiRequest {
 
-	/*for headlines*/
+	//api news top headlines
 	@GET("top-headlines")
-	Call<HeadLines> getData(
+	Call<HeadLines> getTopHeadlines(
 			@Query("country") String country,
 			@Query("apiKey") String apiKey
 	);
 
-	/*for category wise data*/
+	//api news top headlines by category
 	@GET("top-headlines")
-	Call<HeadLines> getEntertainmentData(
+	Call<HeadLines> getTopHeadlinesByCategory(
 			@Query("country") String country,
 			@Query("category") String category,
 			@Query("apiKey") String apiKey

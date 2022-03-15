@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.mynews.fragments.BusinessFragment;
 import com.example.mynews.fragments.EntertainmentFragment;
 import com.example.mynews.fragments.FavoritesFragment;
-import com.example.mynews.fragments.HeadLinesFragment;
+import com.example.mynews.fragments.TopHeadlinesFragment;
 import com.example.mynews.fragments.SportsFragment;
 import com.example.mynews.fragments.TechnologyFragment;
 
@@ -27,7 +27,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int position) {
 		switch (position) {
 			case 0:
-				HeadLinesFragment headLinesFragment = new HeadLinesFragment();
+				TopHeadlinesFragment headLinesFragment = new TopHeadlinesFragment();
 				return headLinesFragment;
 			case 1:
 				EntertainmentFragment entertainmentFragment = new EntertainmentFragment();

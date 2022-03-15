@@ -37,7 +37,7 @@ public class HeadLines {
 		this.totalResults = totalResults;
 	}
 
-	public List<Articles> getArticlesList() {
+	public List<Articles> getArticles() {
 		return articlesList;
 	}
 
