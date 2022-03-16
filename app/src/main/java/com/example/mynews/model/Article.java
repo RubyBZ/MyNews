@@ -1,9 +1,22 @@
 package com.example.mynews.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Articles {
+import java.io.Serializable;
+
+@Entity(tableName = "articles")
+public class Article implements Serializable{
+
+	@PrimaryKey(autoGenerate = true)
+	@NonNull
+	@ColumnInfo(name = "articleId")
+	private int id;
 
 	@SerializedName("source")
 	@Expose
@@ -33,7 +46,7 @@ public class Articles {
 	@Expose
 	private String url;
 
-	public Articles(Source source, String author, String title, String descriptions, String imageUrl, String publishedAt, String url) {
+	public Article(Source source, String author, String title, String descriptions, String imageUrl, String publishedAt, String url) {
 		this.source = source;
 		this.author = author;
 		this.title = title;
@@ -41,6 +54,14 @@ public class Articles {
 		this.imageUrl = imageUrl;
 		this.publishedAt = publishedAt;
 		this.url = url;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Source getSource() {

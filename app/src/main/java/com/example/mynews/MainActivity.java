@@ -31,15 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 		tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 		viewPager.setAdapter(myAdapter);
-		//viewPager.setOffscreenPageLimit(3);
-		//viewPager.setClipToPadding(false);
-		//viewPager.setPageMargin(30);
 
-
-		//Option 1
-		//tabLayout.setupWithViewPager(viewPager);
-
-		//Option 2
 		viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 		tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 			@Override

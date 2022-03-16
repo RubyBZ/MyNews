@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.mynews.model.Article;
 import com.example.mynews.model.HeadLines;
 import com.example.mynews.repository.ArticleRepository;
 
 public class SportsViewModel extends AndroidViewModel {
 
-	//todo - change the country by settings
 	private String country = COUNTRY;
 	private ArticleRepository articleRepository;
 	private LiveData<HeadLines> sportsLiveData;
@@ -22,7 +22,7 @@ public class SportsViewModel extends AndroidViewModel {
 	public SportsViewModel(@NonNull Application application) {
 		super(application);
 
-		articleRepository = new ArticleRepository();
+		articleRepository = new ArticleRepository(getApplication());
 		articleRepository.setHeadlinesCountry(country);
 		articleRepository.setHeadlinesCategory(SPORTS);
 
@@ -31,5 +31,9 @@ public class SportsViewModel extends AndroidViewModel {
 
 	public LiveData<HeadLines> getSportsLiveData() {
 		return sportsLiveData;
+	}
+
+	public void saveToFavorites(Article article) {
+		articleRepository.insertArticle(article);
 	}
 }

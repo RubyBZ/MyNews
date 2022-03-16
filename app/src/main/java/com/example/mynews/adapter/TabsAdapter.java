@@ -54,14 +54,5 @@ public class TabsAdapter extends FragmentPagerAdapter {
 	public int getCount() {
 		return tabs_size;
 	}
-/*
-	@Override
-	public float getPageWidth (int position) {
-		return 0.93f;
-	}
-*/
-	//@Override
-	//public CharSequence getPageTitle(int position) {
-	//	return "Page " + position;
-	//}
+
 }

@@ -13,7 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.mynews.model.Articles;
+import com.example.mynews.listeners.ArticleListener;
+import com.example.mynews.model.Article;
 import com.example.mynews.R;
 import com.example.mynews.utils.Utils;
 
@@ -21,12 +22,14 @@ import java.util.List;
 
 public class HeadLinesAdapter extends RecyclerView.Adapter<HeadLinesAdapter.viewHolder> {
 
-	List<Articles> articlesList;
+	List<Article> articlesList;
 	Context context;
+	ArticleListener articleListener;
 
-	public HeadLinesAdapter(List<Articles> articlesList, Context context) {
+	public HeadLinesAdapter(List<Article> articlesList, ArticleListener articleListener, Context context) {
 		this.articlesList = articlesList;
 		this.context = context;
+		this.articleListener = articleListener;
 	}
 
 	@NonNull
@@ -38,17 +41,17 @@ public class HeadLinesAdapter extends RecyclerView.Adapter<HeadLinesAdapter.view
 
 	@Override
 	public void onBindViewHolder(@NonNull HeadLinesAdapter.viewHolder holder, int position) {
-		Articles articles=articlesList.get(position);
+		Article article=articlesList.get(position);
 
-		String url=articles.getUrl();
+		String url=article.getUrl();
 		holder.url.setText(url);
 
-		holder.date.setText(Utils.DateFormat(articles.getPublishedAt()));
-		holder.title.setText(articles.getTitle());
-		holder.description.setText(articles.getDescriptions());
-		holder.publisherNewsName.setText(articles.getSource().getName());
+		holder.date.setText(Utils.DateFormat(article.getPublishedAt()));
+		holder.title.setText(article.getTitle());
+		holder.description.setText(article.getDescriptions());
+		holder.publisherNewsName.setText(article.getSource().getName());
 
-		String imageUrl=articles.getImageUrl();
+		String imageUrl=article.getImageUrl();
 		Glide.with(context)
 				.load(imageUrl)
 				.into(holder.headLineImage);
@@ -64,6 +67,13 @@ public class HeadLinesAdapter extends RecyclerView.Adapter<HeadLinesAdapter.view
 
 			}
 		});
+
+		holder.favoriteImage.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				articleListener.onArticleClicked(article);
+			}
+		});
 	}
 
 	@Override
@@ -74,7 +84,7 @@ public class HeadLinesAdapter extends RecyclerView.Adapter<HeadLinesAdapter.view
 
 	public class viewHolder extends RecyclerView.ViewHolder{
 
-		ImageView headLineImage;
+		ImageView headLineImage, favoriteImage;
 		TextView author,url,date,title,description,publisherNewsName;
 
 		public viewHolder(@NonNull View itemView) {
@@ -86,7 +96,7 @@ public class HeadLinesAdapter extends RecyclerView.Adapter<HeadLinesAdapter.view
 			description=itemView.findViewById(R.id.description);
 			publisherNewsName=itemView.findViewById(R.id.newsName);
 			headLineImage=itemView.findViewById(R.id.headlineImage);
-
+			favoriteImage = itemView.findViewById(R.id.fav_btn);
 		}
 	}
 }

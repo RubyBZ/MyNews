@@ -13,9 +13,9 @@ public class HeadLines {
 	private int totalResults;
 
 	@SerializedName("articles")
-	List<Articles> articlesList;
+	List<Article> articlesList;
 
-	public HeadLines(String status, int totalResults, List<Articles> articlesList) {
+	public HeadLines(String status, int totalResults, List<Article> articlesList) {
 		this.status = status;
 		this.totalResults = totalResults;
 		this.articlesList = articlesList;
@@ -37,11 +37,11 @@ public class HeadLines {
 		this.totalResults = totalResults;
 	}
 
-	public List<Articles> getArticles() {
+	public List<Article> getArticles() {
 		return articlesList;
 	}
 
-	public void setArticlesList(List<Articles> articlesList) {
+	public void setArticlesList(List<Article> articlesList) {
 		this.articlesList = articlesList;
 	}
 }
